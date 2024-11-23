@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .form-container h2 {
+            text-align: center;
+        }
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #4cae4c;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Register</h2>
+        <form id="registrationForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+            
+            <button type="submit">Register</button>
+        </form>
+        
+    </div>
+
+    <script>
+        function validateForm() {
+            // Clear previous error messages
+            document.getElementById("usernameError").textContent = "";
+            document.getElementById("emailError").textContent = "";
+            document.getElementById("passwordError").textContent = "";
+            document.getElementById("confirmPasswordError").textContent = "";
+
+            // Get form values
+            const username = document.getElementById("username").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            let isValid = true;
+
+            // Validate username
+            if (username === "") {
+                document.getElementById("usernameError").textContent = "Username is required.";
+                isValid = false;
+            }
+
+            // Validate email
+            if (email === "") {
+                document.getElementById("emailError").textContent = "Email is required.";
+                isValid = false;
+            } else if (!/\S+@\S+\.\S+/.test(email)) {
+                document.getElementById("emailError").textContent = "Enter a valid email address.";
+                isValid = false;
+            }
+
+            // Validate password
+            if (password === "") {
+                document.getElementById("passwordError").textContent = "Password is required.";
+                isValid = false;
+            } else if (password.length < 6) {
+                document.getElementById("passwordError").textContent = "Password must be at least 6 characters.";
+                isValid = false;
+            }
+
+            // Validate confirm password
+            if (confirmPassword === "") {
+                document.getElementById("confirmPasswordError").textContent = "Confirm your password.";
+                isValid = false;
+            } else if (password !== confirmPassword) {
+                document.getElementById("confirmPasswordError").textContent = "Passwords do not match.";
+                isValid = false;
+            }
+
+            // If the form is valid, alert success message
+            if (isValid) {
+                alert("Registration successful!");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <script>
+            function add(a,b){
+                var a,b;
+                a=document.getElementById("fn").value;
+                b=document.getElementById("sn").value;
+                c=parseInt(a)+parseInt(b);
+                window.alert("sum is "+ c);
+            }
+            function sub(a,b){
+                var a,b;
+                a=document.getElementById("fn").value;
+                b=document.getElementById("sn").value;
+                c=parseInt(a)-parseInt(b);
+                window.alert("sub is "+ c);
+            }
+            function mul(a,b){
+                var a,b;
+                a=document.getElementById("fn").value;
+                b=document.getElementById("sn").value;
+                c=parseInt(a)*parseInt(b);
+                window.alert("mul is "+ c);
+            }
+            function div(a,b){
+                var a,b;
+                a=document.getElementById("fn").value;
+                b=document.getElementById("sn").value;
+                c=parseInt(a)/parseInt(b);
+                window.alert(" div  is "+ c);
+            }
+
+        </script>
+    </head>
+    <body>
+        <form>
+            <label >enter fn:</label>
+            <input type="textbox" id="fn"><br><br>
+            <label >enter sn:</label>
+            <input type="textbox" id="sn">
+            <input type="button" value="add" onclick="add()">
+            <input type="button" value="sub" onclick="sub()">
+            <input type="button" value="mul" onclick="mul()">
+            <input type="button" value="div" onclick="div()">
+        </form>
+    </body>
+</html>
